@@ -1,0 +1,12 @@
+{
+  "name": "why-claude-code-leaked-toolkit",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Packaging security toolkit and case study",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "audit:package": "node scripts/audit-package.mjs"
+  }
+}

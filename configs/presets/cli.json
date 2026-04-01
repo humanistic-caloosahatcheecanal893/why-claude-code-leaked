@@ -1,0 +1,14 @@
+{
+  "maxBytes": 1200000,
+  "blockedExtensions": [
+    ".map"
+  ],
+  "highRiskPatterns": [
+    "\\.pem$",
+    "\\.key$",
+    "\\.p12$",
+    "(^|/)\\.env(\\.|$)",
+    "(^|/)id_rsa(\\.|$)"
+  ],
+  "failOnMissingFilesAllowlist": false
+}

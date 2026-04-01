@@ -2,6 +2,12 @@
 
 This guide helps maintainers copy the core controls into any npm repository.
 
+## Adoption Modes
+
+- **Minimal**: run only `audit-package.mjs` before publish
+- **Standard**: audit + manifest baseline + CI workflow
+- **Strict**: tighter policy and enforced allowlist
+
 ## 1) Copy the Files
 
 Copy these into your project:
@@ -52,3 +58,5 @@ Edit `package-audit.config.json`:
 - add blocked file extensions used in your ecosystem
 - add extra `highRiskPatterns`
 - set `failOnMissingFilesAllowlist` to `true` for strict mode
+
+Optional: start from a preset in `configs/presets/` and adapt it.
