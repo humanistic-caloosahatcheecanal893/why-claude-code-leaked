@@ -17,6 +17,8 @@ The leak resulted from a "triple-failure" chain in the CI/CD pipeline:
 2.  **Bun Runtime Bug:** Reports suggest a known issue in the **Bun runtime** (Bun bug #28001) caused source maps to be generated even when the configuration explicitly requested they be disabled for production builds.
 3.  **R2 Bucket Misconfiguration:** The source maps contained pointers to a ZIP archive on a Cloudflare R2 bucket. This bucket was inadvertently set to "Public," allowing the full codebase to be retrieved via the metadata found in the npm package.
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/0ea82380-e41b-46c0-92a9-c5e4bf09a2d4" />
+
 ## 🔍 Key Findings from Research Reports
 According to public analysis by security researchers (e.g., Chaofan Shou), the exposure revealed:
 *   **The Orchestration Layer:** Detailed logic on how the agent coordinates multi-step tool use and bash command validation.
