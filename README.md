@@ -1,4 +1,4 @@
-# Packaging Security Case Study: Claude Code v2.1.88
+# Claude Code Leak Repository: Packaging Security Case Study (v2.1.88)
 
 This repository turns a public packaging incident into a reusable maintainer toolkit for npm package hardening.
 
@@ -23,6 +23,30 @@ This repository turns a public packaging incident into a reusable maintainer too
 - CI checks that fail on source maps and suspicious tarball growth
 - Structured, machine-readable references and timeline data
 - Maintainer docs to prevent repeat incidents in any Node ecosystem project
+
+## Looking For This Topic?
+
+This repository is intentionally written to be discoverable for queries like:
+
+- `claude code leak github`
+- `claude code leak repo`
+- `claw code leak` (common typo)
+
+If you found this repo through one of those searches, start with `docs/claude-code-leak-faq.md`.
+
+## What the Package Audit Workflow Does
+
+The GitHub Actions workflow at `.github/workflows/package-audit.yml` runs on pull requests, pushes to `main`, and manual dispatch.
+
+It:
+
+1. checks out the repository
+2. sets up Node.js 24
+3. installs dependencies when `package.json` exists
+4. runs `scripts/audit-package.mjs` to block risky package contents
+5. compares against `data/pack-manifest.json` (when present) to detect unexpected tarball drift
+
+This is a release-hygiene guardrail to catch accidental packaging exposure before publish.
 
 ## Incident Snapshot (Public Reporting)
 
@@ -60,6 +84,7 @@ Use these assets directly in your own repositories:
 - `docs/npm-hardening-checklist.md` - release checklist
 - `docs/source-map-risks.md` - threat model and controls
 - `docs/adopt-in-5-minutes.md` - copy-paste onboarding for maintainers
+- `docs/claude-code-leak-faq.md` - search-friendly FAQ and safe usage guide
 
 ## Quick Start
 
