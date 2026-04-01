@@ -24,15 +24,25 @@ This repository turns a public packaging incident into a reusable maintainer too
 - Structured, machine-readable references and timeline data
 - Maintainer docs to prevent repeat incidents in any Node ecosystem project
 
-## Looking For This Topic?
+## Use This In 5 Minutes
 
-This repository is intentionally written to be discoverable for queries like:
+Copy these into your repo:
 
-- `claude code leak github`
-- `claude code leak repo`
-- `claw code leak` (common typo)
+- `scripts/audit-package.mjs`
+- `scripts/generate-pack-manifest.mjs`
+- `scripts/compare-pack-manifest.mjs`
+- `package-audit.config.json`
+- `.github/workflows/package-audit.yml`
 
-If you found this repo through one of those searches, start with `docs/claude-code-leak-faq.md`.
+Run:
+
+```bash
+node scripts/audit-package.mjs
+node scripts/generate-pack-manifest.mjs
+node scripts/compare-pack-manifest.mjs
+```
+
+Full quickstart: `docs/adopt-in-5-minutes.md`
 
 ## What the Package Audit Workflow Does
 
