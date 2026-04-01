@@ -44,6 +44,10 @@ node scripts/compare-pack-manifest.mjs
 
 Full quickstart: `docs/adopt-in-5-minutes.md`
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b2149769-d5d6-4fe9-8cc3-ab38fa27bc10" width="640" alt="Use this in 5 minutes"/>
+</p>
+
 ## Recommended Adoption Paths
 
 - **Minimal mode**: run `scripts/audit-package.mjs` before publish
