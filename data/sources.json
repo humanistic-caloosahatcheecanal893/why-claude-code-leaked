@@ -117,5 +117,25 @@
       "title_fetched": null,
       "error": "HTTPError: Too Many Requests"
     }
+  },
+  {
+    "id": "zscaler-threatlabz-claude-code-leak",
+    "category": "threat-research",
+    "title": "Anthropic Claude Code Leak",
+    "publisher": "Zscaler ThreatLabz",
+    "published": "2026-04-01",
+    "url": "https://www.zscaler.com/blogs/security-research/anthropic-claude-code-leak",
+    "summary": "Independent analysis of post-incident abuse patterns and defensive guidance; includes discussion of malicious repositories using incident-themed lures.",
+    "confidence": "medium"
+  },
+  {
+    "id": "cnbc-anthropic-claude-code-packaging",
+    "category": "reporting",
+    "title": "Anthropic leaks part of Claude Code's internal source code",
+    "publisher": "CNBC",
+    "published": "2026-03-31",
+    "url": "https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html",
+    "summary": "News coverage summarizing the packaging-related exposure and Anthropic's statement distinguishing the event from a traditional data breach.",
+    "confidence": "medium"
   }
 ]

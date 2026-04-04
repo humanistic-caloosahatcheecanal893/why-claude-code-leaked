@@ -84,6 +84,35 @@ Multiple reports on March 31, 2026 describe a packaging incident involving `@ant
 
 This repository treats the event as a case study in artifact governance, not a reverse-engineering archive.
 
+## Security risks (why teams should care)
+
+The original failure was a **packaging and release-control** problem, not a story that ends when a bad tarball is pulled. Once implementation details circulate widely, defenders should expect **follow-on abuse** that has little to do with the vendor’s intent.
+
+**Supply chain and social engineering.** High-profile incidents attract clones, forks, and “convenience” downloads. Any asset that is not explicitly published by the vendor should be treated as **untrusted**: binaries, archives, install scripts, and repos that borrow the same naming or narrative can be used purely as **lures**. Third-party threat research has documented malware delivery tied to incident-themed GitHub activity; see [Zscaler ThreatLabz (April 2026)](https://www.zscaler.com/blogs/security-research/anthropic-claude-code-leak) for one independent write-up. This repository does **not** endorse or link to unofficial mirrors.
+
+**Sharper attacks on developers.** When more of the client-side harness is visible, attackers can invest in **targeted** malicious projects: repo layouts, hook files, MCP configuration, and environment-driven behavior that are harder to spot than generic npm typosquats. The lesson for security programs is not “read the leaked code,” but **assume untrusted trees are hostile** and constrain what agents and install scripts can do on a workstation.
+
+**Agent and local execution posture.** Tools that run shell commands, load project config, or pull in dependencies amplify mistakes. Running them against **unreviewed** checkouts—especially while chasing “leaked” or “unlocked” builds—increases the blast radius of a single bad folder.
+
+**Operational overlap with unrelated registry events.** Busy news days sometimes align with **other** ecosystem incidents (compromised packages, typosquats, or trojaned dependencies). That correlation does not imply a single root cause, but it is a good reason to **pin installs**, verify publisher identity, and pause “upgrade everything” habits until signals stabilize.
+
+**What this repo is for.** The toolkit here helps **publishers** avoid shipping debug artifacts and unexpected files. It does **not** replace dependency scanning, secret scanning, binary signing, or enterprise allowlisting. It complements those controls by shrinking accidental exposure at the source.
+
+## IP, policy, and “not open source” lessons
+
+Packaging mistakes can still produce **serious intellectual-property exposure** when build outputs include debugging bridges (for example, source maps) that make private implementation details recoverable from a public registry artifact. That is a **distribution and release-engineering** failure class: it is not the same thing as a network intrusion, but the downstream effects for a product team can still be large.
+
+Vendor-facing reporting summarized the incident as a **human-error packaging issue** and stated that customer data and credentials were not involved; see [CNBC’s reporting on Anthropic’s statement](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html) for one primary-news account. This repository does not reproduce that statement verbatim.
+
+**Organizational guardrails that reduce harm:**
+
+- Treat any non-vendor redistribution, translation, or “rewrite” of leaked material as **outside normal open-source assumptions** unless you have explicit rights.
+- Train engineers that **visibility on GitHub does not equal a license**: curiosity-driven clones and forks can create compliance and employment-policy problems, not just security problems.
+- Separate “security incident response” from “IP incident response”: legal, communications, and engineering leads need different checklists even when the root cause is a mis-published artifact.
+- Assume **public attention spikes** will correlate with **copycat repos and scams** even when the original issue was accidental.
+
+Industry summaries in early April 2026 (including trade coverage such as *Cyber Magazine*) also discussed how AI-assisted rewrites and cross-language ports can blur lines between research and unauthorized derivative use. This README is not legal advice; route policy decisions through counsel.
+
 ## Confirmed vs Inferred
 
 ### Confirmed (from reporting + docs)
@@ -199,5 +228,7 @@ This repo provides reusable controls maintainers can apply immediately:
 - [Bun issue #28001](https://github.com/oven-sh/bun/issues/28001)
 - [The Register coverage](https://www.theregister.com/2026/03/31/anthropic_claude_code_source_code/)
 - [VentureBeat coverage](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know/)
+- [Zscaler ThreatLabz — post-incident threat notes](https://www.zscaler.com/blogs/security-research/anthropic-claude-code-leak)
+- [CNBC — Anthropic statement context (packaging vs breach framing)](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html)
 
 See `data/sources.json` for categorized references and confidence notes.
