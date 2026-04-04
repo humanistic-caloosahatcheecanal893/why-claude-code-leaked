@@ -2,6 +2,8 @@
 
 **Who is this for?** Teams that publish JavaScript/TypeScript to npm (libraries, CLIs, or internal packages). You should know how to run commands in a terminal and what `npm publish` means; you do not need to be a security engineer.
 
+**Unfamiliar terms?** See [glossary.md](./glossary.md).
+
 This guide helps you copy a small, opinionated set of controls into **your** repository so fewer surprises end up in the tarball users install.
 
 ## Adoption Modes

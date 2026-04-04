@@ -8,6 +8,8 @@ This page is for people who land here from searches like:
 
 If you are **new to npm or supply-chain security**, read this FAQ first, then the main [README](../README.md).
 
+**Terms:** see the [glossary](./glossary.md) (written for non-developers and for data scientists).
+
 ---
 
 ## What is this repository?
