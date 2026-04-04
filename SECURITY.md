@@ -1,5 +1,7 @@
 # Security Policy
 
+If you are reporting a **vulnerability in this repo’s scripts or workflow**, use the steps below. If you are trying to report a problem with **Anthropic’s products**, contact their official channels instead—this project is independent.
+
 ## Scope
 
 This repository contains educational material and tooling for package-release hardening.  

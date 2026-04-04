@@ -2,6 +2,8 @@
 
 Thanks for helping improve package security practices.
 
+**First time contributing to open source?** You can help by fixing typos, improving explanations for beginners, or adding tests—no deep security background required. When you change factual claims about the incident, include a link to a reputable source in your pull request.
+
 ## Contribution Types
 
 - CI/CD hardening improvements
@@ -21,10 +23,11 @@ Thanks for helping improve package security practices.
 Run before submitting:
 
 ```bash
+npm test
 node scripts/audit-package.mjs
 ```
 
-If this repo becomes a package later, also run:
+Also recommended:
 
 ```bash
 npm pack --dry-run --json

@@ -1,56 +1,83 @@
-# Claude Code Leak FAQ (GitHub Repository Guide)
+# Claude Code Leak FAQ (beginner-friendly)
 
-This page is for developers searching terms like:
+This page is for people who land here from searches like:
 
 - `claude code leak github`
 - `claude code leak repo`
-- `claw code leak`
+- `claw code leak` (typo)
 
-It summarizes what this repository is and how to use it safely.
+If you are **new to npm or supply-chain security**, read this FAQ first, then the main [README](../README.md).
+
+---
 
 ## What is this repository?
 
-This is an educational packaging-security case study built from public reporting and official documentation.  
-It does not host or mirror proprietary leaked code.
+A **teaching + tooling** project about **npm packaging safety**. It explains—in plain language—why accidental files in a published package can cause big problems, and it gives scripts and CI you can reuse.
 
-## What happened in the Claude Code leak incident?
+It does **not** host, link, or help you find leaked proprietary source code.
 
-Public reports describe an npm packaging incident where release artifacts exposed unintended source-related files.  
-The core lesson is release pipeline hardening, not reverse engineering.
+---
+
+## What happened in the Claude Code incident (simple version)?
+
+Think of it in three layers:
+
+1. **The model** (weights, training data) — widely discussed as **not** the thing that leaked in this story.
+2. **The product around the model** — terminal tool, prompts, tool use, workflows. Discussion focuses here.
+3. **The mistake** — a **release/packaging** problem: something that should not ship to every `npm install` user ended up in a public package.
+
+So the lesson is mostly: **treat your publish pipeline like a security boundary**, not “someone hacked Anthropic’s servers.”
+
+---
+
+## What do people *think* the leak “proves”?
+
+**Reasonable takeaways** (common across forums and articles):
+
+- Modern AI products are **stacks**: model + tools + prompts + policies.
+- **Prompting and runtime rules** are real engineering work, not afterthoughts.
+- **Agents** (multi-step tool use) are where a lot of product differentiation lives.
+
+**Easy to overread** (stay skeptical):
+
+- A **codename** in source is not a confirmed public roadmap.
+- Prompts that say “check your work” are **normal**; they are not proof the model is uniquely unreliable.
+- Claims about **“prediction layers”** or deep parallel simulation are often **speculative** unless demonstrated with evidence.
+
+For a longer walkthrough, see the **“Understanding the Claude Code leak”** section in the [README](../README.md).
+
+---
 
 ## Is this a Claude Code leak archive?
 
-No.  
-This project is a prevention toolkit:
+**No.** This repo is a **prevention toolkit**:
 
-- package audit scripts
-- CI guardrails
-- manifest drift detection
-- maintainer checklists and runbooks
+- audit scripts
+- GitHub Actions workflow
+- optional manifest drift checks
+- checklists and runbooks
 
-## How do I use this in my own repo?
+---
 
-Start here:
+## How do I use this in my own project?
 
-1. `docs/adopt-in-5-minutes.md`
-2. `scripts/audit-package.mjs`
-3. `.github/workflows/package-audit.yml`
+Follow the steps in [adopt-in-5-minutes.md](./adopt-in-5-minutes.md). Short version:
 
-Optional:
+1. Copy the scripts and workflow into your repo.
+2. Run `node scripts/audit-package.mjs`.
+3. Add CI so every PR checks what would ship.
 
-- `scripts/generate-pack-manifest.mjs`
-- `scripts/compare-pack-manifest.mjs`
+---
 
 ## Why include typo terms like "claw code leak"?
 
-Many users discover incident resources through imperfect spellings.  
-Including common variants helps route users to a responsible, prevention-focused resource.
+People search with mistakes. We’d rather send them to **safe, educational material** than to random forks or malware lures.
+
+---
 
 ## Where are the references?
 
-See:
+- `data/sources.json` — outlets, docs, and research we cite
+- `data/timeline.json` — dated events with confidence tags
 
-- `data/sources.json`
-- `data/timeline.json`
-
-Both are curated for transparency and confidence labeling.
+If you are writing a report, **cite those sources directly** instead of treating this FAQ as a primary reference.
