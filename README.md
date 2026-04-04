@@ -53,6 +53,10 @@ node scripts/compare-pack-manifest.mjs
 
 **CI:** `.github/workflows/package-audit.yml` checks out the repo, uses Node 24, runs `npm test` when present, runs the audit, and compares to `data/pack-manifest.json` if you commit a baseline.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b2149769-d5d6-4fe9-8cc3-ab38fa27bc10" width="740" alt="Use this in 5 minutes"/>
+</p>
+
 ## Quick start (your package)
 
 Run from a directory that has **`package.json`** (your library or CLI).
